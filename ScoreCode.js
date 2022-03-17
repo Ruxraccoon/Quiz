@@ -148,7 +148,7 @@ const questions =[
     }
   ];
 
-var header2 = document.getElementById("h2").innerHTML
+var header2 = document.getElementById("question")
 var ansButton1 = document.getElementById("ans1")
 var ansButton2 = document.getElementById("ans2")
 var ansButton3 = document.getElementById("ans3")
@@ -163,7 +163,7 @@ function getQuestion() {
     var answers = [selected.Correct,selected.incorrect1,selected.incorrect2,selected.incorrect3]
     var answers = answers.sort((a,b) => 0.5 - Math.random())
 
-    header2 = selected.Question;
+    header2.innerHTML = selected.Question;
     ansButton1.innerHTML = answers[0];
     ansButton2.innerHTML = answers[1];
     ansButton3.innerHTML = answers[2];
