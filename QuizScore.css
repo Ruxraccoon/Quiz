@@ -11,12 +11,12 @@ h2 {
 
 .btnContainer1{
     text-align: center;
-    padding: 10px;
+    padding-top: 10px;
 }
 
 .btnContainer2{
     text-align: center;
-    padding: 0px;
+    padding-bottom: 10px;
 }
 
 .button{ 
@@ -33,4 +33,22 @@ h2 {
     margin: 5px;
     cursor: pointer;
     border-radius: 40px;
+    width: 350px;
+}  
+
+.buttonSelect{ 
+    background-color: #ffbc03;
+    border: 5;
+    color: black;
+    padding: 20px 80px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 800;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 40px;
+    width: 350px;
 }  
