@@ -172,6 +172,14 @@ function getQuestion() {
     ansButton4.innerHTML = answers[3];
 }
 
+function resetButtons(){
+  ansButton1.className = "button"
+  ansButton2.className = "button"
+  ansButton3.className = "button"
+  ansButton4.className = "button"
+
+}
+
 ansButton1.onclick = function() {
     if (ansButton1.className == "button"){
         ansButton1.className = "buttonSelect"
@@ -232,6 +240,7 @@ next.onclick = function() {
     if (ansButton1.innerHTML == selected.Correct){
       score++
     }
+    resetButtons()
     finishQuiz()
     getQuestion()
   } else if (ansButton2.className == "buttonSelect"){
@@ -239,6 +248,7 @@ next.onclick = function() {
     if (ansButton2.innerHTML == selected.Correct){
       score++
     }
+    resetButtons()
     finishQuiz()
     getQuestion()
   } else if (ansButton3.className == "buttonSelect"){
@@ -246,6 +256,7 @@ next.onclick = function() {
     if (ansButton3.innerHTML == selected.Correct){
       score++
     }
+    resetButtons()
     finishQuiz()
     getQuestion()
   } else if (ansButton4.className == "buttonSelect"){
@@ -253,10 +264,12 @@ next.onclick = function() {
     if (ansButton4.innerHTML == selected.Correct){
       score++
     }
+    resetButtons()
     finishQuiz()
     getQuestion()
   } else {
     ammount++
+    resetButtons()
     finishQuiz()
     getQuestion()
   }
