@@ -1,3 +1,14 @@
+var ammount = 0
+var score = 0
+var selected =[]
+
+var header2 = document.getElementById("question")
+var ansButton1 = document.getElementById("ans1")
+var ansButton2 = document.getElementById("ans2")
+var ansButton3 = document.getElementById("ans3")
+var ansButton4 = document.getElementById("ans4")
+var next = document.getElementById("next")
+
 const questions =[
     {
       Question: "What is the capital of England?",
@@ -148,18 +159,9 @@ const questions =[
     }
   ];
 
-var header2 = document.getElementById("question")
-var ansButton1 = document.getElementById("ans1")
-var ansButton2 = document.getElementById("ans2")
-var ansButton3 = document.getElementById("ans3")
-var ansButton4 = document.getElementById("ans4")
-
-ammount = 0
-
 function getQuestion() {
 
-    var selected = questions[Math.floor(Math.random() * (questions.length+1))]
-
+    selected = questions[Math.floor(Math.random() * (questions.length))]
     var answers = [selected.Correct,selected.incorrect1,selected.incorrect2,selected.incorrect3]
     var answers = answers.sort((a,b) => 0.5 - Math.random())
 
@@ -168,9 +170,6 @@ function getQuestion() {
     ansButton2.innerHTML = answers[1];
     ansButton3.innerHTML = answers[2];
     ansButton4.innerHTML = answers[3];
-
-
-    ammount++
 }
 
 ansButton1.onclick = function() {
@@ -217,4 +216,55 @@ ansButton4.onclick = function() {
     ansButton3.className = "button"
 }
 
+function finishQuiz(){
+  if (ammount == 6) {
+    sessionStorage.setItem("score", score)
+    sessionStorage.setItem("ammount", ammount)
+    window.location.replace("ScoreResults.html");
+  }
+}
+
+getQuestion()
+
+next.onclick = function() {
+  if (ansButton1.className == "buttonSelect"){
+    ammount++
+    if (ansButton1.innerHTML == selected.Correct){
+      score++
+    }
+    finishQuiz()
+    getQuestion()
+  } else if (ansButton2.className == "buttonSelect"){
+    ammount++
+    if (ansButton2.innerHTML == selected.Correct){
+      score++
+    }
+    finishQuiz()
+    getQuestion()
+  } else if (ansButton3.className == "buttonSelect"){
+    ammount++
+    if (ansButton3.innerHTML == selected.Correct){
+      score++
+    }
+    finishQuiz()
+    getQuestion()
+  } else if (ansButton4.className == "buttonSelect"){
+    ammount++
+    if (ansButton4.innerHTML == selected.Correct){
+      score++
+    }
+    finishQuiz()
+    getQuestion()
+  } else {
+    ammount++
+    finishQuiz()
+    getQuestion()
+  }
+}
+
+
+
 console.log("Test")
+console.log(score)
+console.log(ammount)
+console.log(selected)
