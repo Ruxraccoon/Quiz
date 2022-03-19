@@ -2,6 +2,7 @@ var ammount = 0
 var score = 0
 var selected =[]
 var storedAnswers = []
+var totalQst = 6
 
 var header2 = document.getElementById("question")
 var ansButton1 = document.getElementById("ans1")
@@ -238,14 +239,19 @@ ansButton4.onclick = function() {
 }
 
 function finishQuiz(){
-  if (ammount == 6) {
+  if (ammount == totalQst) {
     sessionStorage.setItem("score", score)
     sessionStorage.setItem("ammount", ammount)
     window.location.replace("ScoreResults.html");
   }
 }
 
+function displayQstNum(){
+  document.getElementById("display").innerHTML = `Question: ${ammount}/${totalQst}`
+}
+
 getQuestion()
+displayQstNum()
 
 next.onclick = function() {
   if (ansButton1.className == "buttonSelect"){
@@ -255,6 +261,7 @@ next.onclick = function() {
     }
     resetButtons()
     finishQuiz()
+    displayQstNum()
     getQuestion()
   } else if (ansButton2.className == "buttonSelect"){
     ammount++
@@ -263,6 +270,7 @@ next.onclick = function() {
     }
     resetButtons()
     finishQuiz()
+    displayQstNum()
     getQuestion()
   } else if (ansButton3.className == "buttonSelect"){
     ammount++
@@ -271,6 +279,7 @@ next.onclick = function() {
     }
     resetButtons()
     finishQuiz()
+    displayQstNum()
     getQuestion()
   } else if (ansButton4.className == "buttonSelect"){
     ammount++
@@ -279,11 +288,13 @@ next.onclick = function() {
     }
     resetButtons()
     finishQuiz()
+    displayQstNum()
     getQuestion()
   } else {
     ammount++
     resetButtons()
     finishQuiz()
+    displayQstNum()
     getQuestion()
   }
 }
