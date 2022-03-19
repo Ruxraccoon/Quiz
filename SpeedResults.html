@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <link rel ="stylesheet" href ="QuizMain.css" type ="text/css"/>
+        <title >
+            Capital Cities Quiz 
+        </title >
+    </head>
+
+    <body>
+        <h1> Capital Cities Quiz </h1>
+
+        <h2> You got... </h2>
+        <h2 id = "result">  </h2>
+
+        <script> 
+        score = JSON.parse(sessionStorage.getItem("score"));
+        ammount = JSON.parse(sessionStorage.getItem("ammount"));
+        console.log(score, ammount)
+        score = String(score);
+        ammount = String(ammount);
+        console.log(score, ammount)
+        document.getElementById("result").innerHTML = `${score} / ${ammount}`
+        </script>
+        
+    </body>
+
+</html>

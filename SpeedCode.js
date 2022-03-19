@@ -1,4 +1,3 @@
-var ammount = 0
 var score = 0
 var selected =[]
 
@@ -225,7 +224,7 @@ ansButton4.onclick = function() {
 }
 
 function finishQuiz(){
-  if (ammount == 6) {
+  if (score == 6) {
     sessionStorage.setItem("score", score)
     sessionStorage.setItem("ammount", ammount)
     window.location.replace("ScoreResults.html");
@@ -236,7 +235,6 @@ getQuestion()
 
 next.onclick = function() {
   if (ansButton1.className == "buttonSelect"){
-    ammount++
     if (ansButton1.innerHTML == selected.Correct){
       score++
     }
@@ -244,7 +242,6 @@ next.onclick = function() {
     finishQuiz()
     getQuestion()
   } else if (ansButton2.className == "buttonSelect"){
-    ammount++
     if (ansButton2.innerHTML == selected.Correct){
       score++
     }
@@ -252,7 +249,6 @@ next.onclick = function() {
     finishQuiz()
     getQuestion()
   } else if (ansButton3.className == "buttonSelect"){
-    ammount++
     if (ansButton3.innerHTML == selected.Correct){
       score++
     }
@@ -260,7 +256,6 @@ next.onclick = function() {
     finishQuiz()
     getQuestion()
   } else if (ansButton4.className == "buttonSelect"){
-    ammount++
     if (ansButton4.innerHTML == selected.Correct){
       score++
     }
@@ -268,7 +263,6 @@ next.onclick = function() {
     finishQuiz()
     getQuestion()
   } else {
-    ammount++
     resetButtons()
     finishQuiz()
     getQuestion()
