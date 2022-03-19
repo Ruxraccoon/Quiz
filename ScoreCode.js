@@ -1,6 +1,7 @@
 var ammount = 0
 var score = 0
 var selected =[]
+var storedAnswers = []
 
 var header2 = document.getElementById("question")
 var ansButton1 = document.getElementById("ans1")
@@ -162,14 +163,26 @@ const questions =[
 function getQuestion() {
 
     selected = questions[Math.floor(Math.random() * (questions.length))]
-    var answers = [selected.Correct,selected.incorrect1,selected.incorrect2,selected.incorrect3]
-    var answers = answers.sort((a,b) => 0.5 - Math.random())
+    dupeCheck = storedAnswers.includes(selected.Correct)
+    console.log(dupeCheck, storedAnswers)
+    if (dupeCheck == true){
+      getQuestion()
+    } else {
+      storedAnswers.push(selected.Correct)
+      var answers = [
+        selected.Correct,
+        selected.incorrect1,
+        selected.incorrect2,
+        selected.incorrect3]
+      var answers = answers.sort((a,b) => 0.5 - Math.random())
 
-    header2.innerHTML = selected.Question;
-    ansButton1.innerHTML = answers[0];
-    ansButton2.innerHTML = answers[1];
-    ansButton3.innerHTML = answers[2];
-    ansButton4.innerHTML = answers[3];
+          
+      header2.innerHTML = selected.Question;
+      ansButton1.innerHTML = answers[0];
+      ansButton2.innerHTML = answers[1];
+      ansButton3.innerHTML = answers[2];
+      ansButton4.innerHTML = answers[3];
+    }
 }
 
 function resetButtons(){
