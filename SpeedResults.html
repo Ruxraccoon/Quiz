@@ -9,17 +9,16 @@
     <body>
         <h1> Capital Cities Quiz </h1>
 
-        <h2> You got... </h2>
-        <h2 id = "result">  </h2>
+        <h2 className = "bold"> It took you... </h2>
+        <h2 id = "result"> </h2>
 
         <script> 
+        sec = JSON.parse(sessionStorage.getItem("sec"));
+        min = JSON.parse(sessionStorage.getItem("min"))
         score = JSON.parse(sessionStorage.getItem("score"));
-        ammount = JSON.parse(sessionStorage.getItem("ammount"));
-        console.log(score, ammount)
-        score = String(score);
-        ammount = String(ammount);
-        console.log(score, ammount)
-        document.getElementById("result").innerHTML = `${score} / ${ammount}`
+        document.getElementById("result").innerHTML = (
+            `${min} Minutes and ${sec} Seconds to get ${score} Questions Correct`
+            )
         </script>
         
     </body>
