@@ -1,12 +1,14 @@
 var score = 0
 var selected =[]
-
+var sec = 0
+var min = 0
 var header2 = document.getElementById("question")
 var ansButton1 = document.getElementById("ans1")
 var ansButton2 = document.getElementById("ans2")
 var ansButton3 = document.getElementById("ans3")
 var ansButton4 = document.getElementById("ans4")
 var next = document.getElementById("next")
+var timer = document.getElementById("timeTaken")
 
 const questions =[
     {
@@ -158,6 +160,27 @@ const questions =[
     }
   ];
 
+function clock(){
+    sec = 0
+    min = 0
+    counter = setInterval(()=> {
+        if (sec < 10){
+            timer.innerHTML = 'Time: ' + min + ':0' + sec;
+            sec ++;
+        }
+        else if (sec > 9 && sec <60){
+            timer.innerHTML = 'Time: ' + min + ':' + sec;
+            sec ++;
+        }
+        else if (sec > 59 ){
+            min++
+            sec = 00
+            timer.innerHTML = 'Time: '+ min + ':' + sec;
+            sec ++;
+        }
+    }, 1000)
+}
+
 function getQuestion() {
 
     selected = questions[Math.floor(Math.random() * (questions.length))]
@@ -178,6 +201,8 @@ function resetButtons(){
   ansButton4.className = "button"
 
 }
+
+clock()
 
 ansButton1.onclick = function() {
     if (ansButton1.className == "button"){
@@ -225,9 +250,10 @@ ansButton4.onclick = function() {
 
 function finishQuiz(){
   if (score == 6) {
+    sessionStorage.setItem("sec", sec)
+    sessionStorage.setItem("min", min)
     sessionStorage.setItem("score", score)
-    sessionStorage.setItem("ammount", ammount)
-    window.location.replace("ScoreResults.html");
+    window.location.replace("SpeedResults.html");
   }
 }
 
