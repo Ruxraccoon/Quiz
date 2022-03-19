@@ -32,6 +32,26 @@ h2 {
     width: 250px;
 }  
 
+.againButton{
+    background-color: #03d9ff;
+    border: 5;
+    color: black;
+    padding: 20px 80px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 800;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 40px;
+    width: 250px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 body{
     background-color: #a9f8f2;
 }

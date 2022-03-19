@@ -9,16 +9,23 @@
     <body>
         <h1> Capital Cities Quiz </h1>
 
-        <h2 className = "bold"> It took you... </h2>
+        <h2> It took you... </h2>
         <h2 id = "result"> </h2>
+
+        <button
+        class = "againButton" id = "again"
+        onclick="window.location.href='Quiz.html'"
+        Play Again ?>
+        Play Again ?
+        </button>
 
         <script> 
         sec = JSON.parse(sessionStorage.getItem("sec"));
         min = JSON.parse(sessionStorage.getItem("min"))
         score = JSON.parse(sessionStorage.getItem("score"));
-        document.getElementById("result").innerHTML = (
-            `${min} Minutes and ${sec} Seconds to get ${score} Questions Correct`
-            )
+        document.getElementById("result").innerHTML = 
+        (`${min} Minutes and ${sec} Seconds to get ${score} Questions Correct`)
+    
         </script>
         
     </body>
