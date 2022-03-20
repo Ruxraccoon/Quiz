@@ -8,6 +8,7 @@ h2 {
     color:black; 
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    font-size: 25px;
 }
 
 .container{
@@ -55,3 +56,13 @@ h2 {
 body{
     background-color: #a9f8f2;
 }
+
+.qstResult{
+    color:black; 
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding-top: 110px ;
+    font-weight: 600;
+    font-size: 20px;
+}
+

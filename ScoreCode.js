@@ -2,7 +2,8 @@ var ammount = 0
 var score = 0
 var selected =[]
 var storedAnswers = []
-var totalQst = 6
+var storedQuestions = []
+var totalQst = 6 //Used to define number of questions in quiz
 
 var header2 = document.getElementById("question")
 var ansButton1 = document.getElementById("ans1")
@@ -165,11 +166,11 @@ function getQuestion() {
 
     selected = questions[Math.floor(Math.random() * (questions.length))]
     dupeCheck = storedAnswers.includes(selected.Correct)
-    console.log(dupeCheck, storedAnswers)
     if (dupeCheck == true){
       getQuestion()
     } else {
       storedAnswers.push(selected.Correct)
+      storedQuestions.push(selected.Question)
       var answers = [
         selected.Correct,
         selected.incorrect1,
@@ -242,6 +243,10 @@ function finishQuiz(){
   if (ammount == totalQst) {
     sessionStorage.setItem("score", score)
     sessionStorage.setItem("ammount", ammount)
+    storedAnswers = JSON.stringify(storedAnswers)
+    storedQuestions = JSON.stringify(storedQuestions)
+    sessionStorage.setItem("answers", storedAnswers)
+    sessionStorage.setItem("questions", storedQuestions)
     window.location.replace("ScoreResults.html");
   }
 }

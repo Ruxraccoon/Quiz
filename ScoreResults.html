@@ -19,14 +19,34 @@
         Play Again ?
         </button>
 
+        <p class ="qstResult" id = "qstResult">
+            The correct answers for your Questions where :
+        </p>
+
         <script> 
         score = JSON.parse(sessionStorage.getItem("score"));
         ammount = JSON.parse(sessionStorage.getItem("ammount"));
-        console.log(score, ammount)
+        storedAns = JSON.parse(sessionStorage.getItem("answers"));
+        storedQst = JSON.parse(sessionStorage.getItem("questions"));
+        console.log(storedAns, storedQst)
         score = String(score);
         ammount = String(ammount);
-        console.log(score, ammount)
         document.getElementById("result").innerHTML = `${score} / ${ammount}`
+        document.getElementById("qstResult").innerHTML =
+        `The correct answers for your Questions where : <br><br>
+        ${storedQst[0]} : <br>
+        ${storedAns[0]} <br><br>
+        ${storedQst[1]} <br>
+        ${storedAns[1]} <br><br>
+        ${storedQst[2]} : <br>
+        ${storedAns[2]} <br><br>
+        ${storedQst[3]} <br>
+        ${storedAns[3]} <br><br>
+        ${storedQst[4]} : <br>
+        ${storedAns[4]} <br><br>
+        ${storedQst[5]} <br>
+        ${storedAns[5]} <br><br>`
+
         </script>
         
     </body>
