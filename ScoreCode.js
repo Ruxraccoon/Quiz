@@ -252,7 +252,8 @@ function finishQuiz(){
 }
 
 function displayQstNum(){
-  document.getElementById("display").innerHTML = `Question: ${ammount}/${totalQst}`
+  document.getElementById("display").innerHTML = 
+  `Question: ${ammount}/${totalQst}`
 }
 
 getQuestion()
