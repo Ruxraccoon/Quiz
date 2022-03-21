@@ -1,5 +1,6 @@
 var score = 0
 var selected =[]
+var storedAnswers = []
 var sec = 0
 var min = 0
 var header2 = document.getElementById("question")
@@ -171,7 +172,7 @@ const questions =[
 function clock(){
     sec = 0
     min = 0
-    counter = setInterval(()=> {
+    setInterval(function() {
         if (sec < 10){
             timer.innerHTML = 'Time: ' + min + ':0' + sec;
             sec ++;
@@ -192,6 +193,10 @@ function clock(){
 function getQuestion() {
 
     selected = questions[Math.floor(Math.random() * (questions.length))]
+    dupeCheck = storedAnswers.includes(selected.Correct)
+    if (dupeCheck == true){
+      getQuestion()
+    }
     var answers = [selected.Correct,selected.incorrect1,selected.incorrect2,selected.incorrect3]
     var answers = answers.sort((a,b) => 0.5 - Math.random())
 
@@ -277,21 +282,25 @@ next.onclick = function() {
   if (ansButton1.className == "buttonSelect"){
     if (ansButton1.innerHTML == selected.Correct){
       score++
+      storedAnswers.push(selected.Correct)
     }
     functionCall()
   } else if (ansButton2.className == "buttonSelect"){
     if (ansButton2.innerHTML == selected.Correct){
       score++
+      storedAnswers.push(selected.Correct)
     }
     functionCall()
   } else if (ansButton3.className == "buttonSelect"){
     if (ansButton3.innerHTML == selected.Correct){
       score++
+      storedAnswers.push(selected.Correct)
     }
     functionCall()
   } else if (ansButton4.className == "buttonSelect"){
     if (ansButton4.innerHTML == selected.Correct){
       score++
+      storedAnswers.push(selected.Correct)
     }
     functionCall()
   } else {
