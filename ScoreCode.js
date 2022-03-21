@@ -304,6 +304,9 @@ function userInputStorage(){
       storedUserIn.push(selected.incorrect3)
     }
   }
+  else {
+    storedUserIn.push("Unanswered")
+  }
 }
 
 getQuestion()
@@ -352,6 +355,7 @@ next.onclick = function() {
     getQuestion()
   } else {
     ammount++
+    userInputStorage()
     resetButtons()
     finishQuiz()
     displayQstNum()
