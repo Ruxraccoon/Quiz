@@ -24,13 +24,15 @@
         </p>
 
         <script> 
+
+        //gets variables from session storage and assigns them to a variable
         score = JSON.parse(sessionStorage.getItem("score"));
         ammount = JSON.parse(sessionStorage.getItem("ammount"));
         storedAns = JSON.parse(sessionStorage.getItem("answers"));
         storedQst = JSON.parse(sessionStorage.getItem("questions"));
         storedInp = JSON.parse(sessionStorage.getItem("userinput"));
-        score = String(score);
-        ammount = String(ammount);
+        
+        //The variable are then used to display their information to the user
         document.getElementById("result").innerHTML = `${score} / ${ammount}`
         document.getElementById("qstResult").innerHTML =
         `The correct answers for your Questions where : <br><br>
