@@ -1,18 +1,19 @@
-var ammount = 0
-var score = 0
-var selected =[]
-var storedAnswers = []
-var storedQuestions = []
-var storedUserIn = []
-var totalQst = 6 
+var ammount = 0 //ammount of questions the user has answered
+var score = 0 //ammount of questions the user has got correct
+var selected =[] //stores the question elements taken randomly from questions array
+var storedAnswers = [] //stores the correct answer for the selected questions
+var storedQuestions = [] ////stores the question for the selected questions
+var storedUserIn = [] //stores the users answer
+var totalQst = 6 //defines how many question the user will need to answer
 
-var header2 = document.getElementById("question")
+var header2 = document.getElementById("question") //assigns a variable with a html element
 var ansButton1 = document.getElementById("ans1")
 var ansButton2 = document.getElementById("ans2")
 var ansButton3 = document.getElementById("ans3")
 var ansButton4 = document.getElementById("ans4")
 var next = document.getElementById("next")
 
+// The list of questions that can be randomly selected
 const questions =[
     {
       Question: "What is the capital of England?",
@@ -170,8 +171,11 @@ const questions =[
     }
   ];
 
+// used to pull a question 
 function getQuestion() {
 
+    //randomly selected an index number to pull from question an assigns it to selected
+    //then checks if the question has been pulled before
     selected = questions[Math.floor(Math.random() * (questions.length))]
     dupeCheck = storedAnswers.includes(selected.Correct)
     if (dupeCheck == true){
@@ -179,14 +183,17 @@ function getQuestion() {
     } else {
       storedAnswers.push(selected.Correct)
       storedQuestions.push(selected.Question)
+      //if the question hasnt been pulled before the possible answers are assign to the array
+      //the array is then shuffled using math.random
       var answers = [
         selected.Correct,
         selected.incorrect1,
         selected.incorrect2,
         selected.incorrect3]
-      var answers = answers.sort((a,b) => 0.5 - Math.random())
+      var answers = answers.sort(() => 0.5 - Math.random())
 
-          
+      //buttons are then assign on of the suffled possible inputs
+      //and the header will display the question
       header2.innerHTML = selected.Question;
       ansButton1.innerHTML = answers[0];
       ansButton2.innerHTML = answers[1];
@@ -195,6 +202,7 @@ function getQuestion() {
     }
 }
 
+//used to remove the users selected button when a new question is pulled
 function resetButtons(){
   ansButton1.className = "button"
   ansButton2.className = "button"
@@ -203,6 +211,7 @@ function resetButtons(){
 
 }
 
+//The four onclick fuction below are used to select a button by changing class name
 ansButton1.onclick = function() {
     if (ansButton1.className == "button"){
         ansButton1.className = "buttonSelect"
@@ -247,6 +256,9 @@ ansButton4.onclick = function() {
     ansButton3.className = "button"
 }
 
+//when the user has answer the ammount of total questions 
+//the below variable are put into session storage to be used 
+//on the result page
 function finishQuiz(){
   if (ammount == totalQst) {
     sessionStorage.setItem("score", score)
@@ -261,11 +273,17 @@ function finishQuiz(){
   }
 }
 
+//displays how many questions are left to answer
 function displayQstNum(){
   document.getElementById("display").innerHTML = 
-  `Question: ${ammount}/${totalQst}`
+  `Questions Answered: ${ammount}/${totalQst}`
 }
 
+//fuction to store what answer the user picked.
+//Since the answers are all random the function has to check
+//what button was selected and what was inside that button
+//it then adds the selected answer to the user input array.
+//if no question is answered "Unanswered" is added to the user input array
 function userInputStorage(){
   if (ansButton1.className == "buttonSelect"){
     if (ansButton1.innerHTML == selected.Correct){
@@ -312,6 +330,8 @@ function userInputStorage(){
   }
 }
 
+//used to run all fuctions that are needed when the
+//next button is used by the user
 function functionCall(){
   userInputStorage()
   resetButtons()
@@ -320,9 +340,15 @@ function functionCall(){
   getQuestion()
 }
 
+//pulls the first question and Questions answered display
 getQuestion()
 displayQstNum()
 
+//when the next button is clicked it checks what ans button was
+//selected and if it was the correct answer if it is correct score and 
+//ammount will increase if it is incorrect only ammount will increase.
+//if no button was selected only ammount will increase.
+//fuction call is used to run all the necessary fuctions.
 next.onclick = function() {
   if (ansButton1.className == "buttonSelect"){
     ammount++
