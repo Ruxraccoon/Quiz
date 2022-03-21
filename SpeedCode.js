@@ -277,9 +277,11 @@ function finishQuiz(){
 
 function reCheck(){
   repeatAns.push(selected.Correct)
-  if (repeatAns.length = 2){
+  console.log(repeatAns.length)
+  if (repeatAns.length == 3){
     repeatAns = repeatAns.splice([0],1);
   }
+  console.log(repeatAns.length)
 }
 
 function functionCall(){
