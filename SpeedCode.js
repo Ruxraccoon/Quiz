@@ -1,6 +1,7 @@
 var score = 0
 var selected =[]
 var storedAnswers = []
+var repeatAns = []
 var sec = 0
 var min = 0
 var header2 = document.getElementById("question")
@@ -194,7 +195,11 @@ function getQuestion() {
 
     selected = questions[Math.floor(Math.random() * (questions.length))]
     dupeCheck = storedAnswers.includes(selected.Correct)
+    repeatCheck = repeatAns.includes(selected.Correct)
     if (dupeCheck == true){
+      getQuestion()
+    }
+    if (repeatCheck == true){
       getQuestion()
     }
     var answers = [selected.Correct,selected.incorrect1,selected.incorrect2,selected.incorrect3]
@@ -270,7 +275,15 @@ function finishQuiz(){
   }
 }
 
+function reCheck(){
+  repeatAns.push(selected.Correct)
+  if (repeatAns.length = 2){
+    repeatAns = repeatAns.splice([0],1);
+  }
+}
+
 function functionCall(){
+  reCheck()
   resetButtons()
   finishQuiz()
   getQuestion()
