@@ -4,7 +4,7 @@ var selected =[]
 var storedAnswers = []
 var storedQuestions = []
 var storedUserIn = []
-var totalQst = 6 //Used to define number of questions in quiz
+var totalQst = 6 
 
 var header2 = document.getElementById("question")
 var ansButton1 = document.getElementById("ans1")
