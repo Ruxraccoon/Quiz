@@ -277,41 +277,37 @@ function userInputStorage(){
     } else if (ansButton1.innerHTML == selected.incorrect3){
       storedUserIn.push(selected.incorrect3)
     }
-  }
-  if (ansButton2.className == "buttonSelect"){
-    if (ansButton2.innerHTML == selected.Correct){
-      storedUserIn.push(selected.Correct)
-    } else if (ansButton2.innerHTML == selected.incorrect1){
-      storedUserIn.push(selected.incorrect1)
-    } else if (ansButton2.innerHTML == selected.incorrect2){
-      storedUserIn.push(selected.incorrect2)
-    } else if (ansButton2.innerHTML == selected.incorrect3){
-      storedUserIn.push(selected.incorrect3)
-    }
-  }
-  if (ansButton3.className == "buttonSelect"){
-    if (ansButton3.innerHTML == selected.Correct){
-      storedUserIn.push(selected.Correct)
-    } else if (ansButton3.innerHTML == selected.incorrect1){
-      storedUserIn.push(selected.incorrect1)
-    } else if (ansButton3.innerHTML == selected.incorrect2){
-      storedUserIn.push(selected.incorrect2)
-    } else if (ansButton3.innerHTML == selected.incorrect3){
-      storedUserIn.push(selected.incorrect3)
-    }
-  }
-  if (ansButton4.className == "buttonSelect"){
-    if (ansButton4.innerHTML == selected.Correct){
-      storedUserIn.push(selected.Correct)
-    } else if (ansButton4.innerHTML == selected.incorrect1){
-      storedUserIn.push(selected.incorrect1)
-    } else if (ansButton4.innerHTML == selected.incorrect2){
-      storedUserIn.push(selected.incorrect2)
-    } else if (ansButton4.innerHTML == selected.incorrect3){
-      storedUserIn.push(selected.incorrect3)
-    }
-  }
-  else {
+  } else if (ansButton2.className == "buttonSelect"){
+      if (ansButton2.innerHTML == selected.Correct){
+        storedUserIn.push(selected.Correct)
+      } else if (ansButton2.innerHTML == selected.incorrect1){
+        storedUserIn.push(selected.incorrect1)
+      } else if (ansButton2.innerHTML == selected.incorrect2){
+        storedUserIn.push(selected.incorrect2)
+      } else if (ansButton2.innerHTML == selected.incorrect3){
+        storedUserIn.push(selected.incorrect3)
+      }
+  } else if (ansButton3.className == "buttonSelect"){
+      if (ansButton3.innerHTML == selected.Correct){
+        storedUserIn.push(selected.Correct)
+      } else if (ansButton3.innerHTML == selected.incorrect1){
+        storedUserIn.push(selected.incorrect1)
+      } else if (ansButton3.innerHTML == selected.incorrect2){
+        storedUserIn.push(selected.incorrect2)
+      } else if (ansButton3.innerHTML == selected.incorrect3){
+        storedUserIn.push(selected.incorrect3)
+      }
+  } else if (ansButton4.className == "buttonSelect"){
+      if (ansButton4.innerHTML == selected.Correct){
+        storedUserIn.push(selected.Correct)
+      } else if (ansButton4.innerHTML == selected.incorrect1){
+        storedUserIn.push(selected.incorrect1)
+      } else if (ansButton4.innerHTML == selected.incorrect2){
+        storedUserIn.push(selected.incorrect2)
+      } else if (ansButton4.innerHTML == selected.incorrect3){
+        storedUserIn.push(selected.incorrect3)
+      }
+  } else {
     storedUserIn.push("Unanswered")
   }
 }
@@ -322,6 +318,7 @@ function functionCall(){
   finishQuiz()
   displayQstNum()
   getQuestion()
+  console.log(storedUserIn)
 }
 
 getQuestion()
