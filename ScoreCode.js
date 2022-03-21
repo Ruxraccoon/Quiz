@@ -309,6 +309,14 @@ function userInputStorage(){
   }
 }
 
+function functionCall(){
+  userInputStorage()
+  resetButtons()
+  finishQuiz()
+  displayQstNum()
+  getQuestion()
+}
+
 getQuestion()
 displayQstNum()
 
@@ -318,47 +326,27 @@ next.onclick = function() {
     if (ansButton1.innerHTML == selected.Correct){
       score++
     }
-    userInputStorage()
-    resetButtons()
-    finishQuiz()
-    displayQstNum()
-    getQuestion()
+    functionCall()
   } else if (ansButton2.className == "buttonSelect"){
     ammount++
     if (ansButton2.innerHTML == selected.Correct){
       score++
     }
-    userInputStorage()
-    resetButtons()
-    finishQuiz()
-    displayQstNum()
-    getQuestion()
+    functionCall()
   } else if (ansButton3.className == "buttonSelect"){
     ammount++
     if (ansButton3.innerHTML == selected.Correct){
       score++
     }
-    userInputStorage()
-    resetButtons()
-    finishQuiz()
-    displayQstNum()
-    getQuestion()
+    functionCall()
   } else if (ansButton4.className == "buttonSelect"){
     ammount++
     if (ansButton4.innerHTML == selected.Correct){
       score++
     }
-    userInputStorage()
-    resetButtons()
-    finishQuiz()
-    displayQstNum()
-    getQuestion()
+    functionCall()
   } else {
     ammount++
-    userInputStorage()
-    resetButtons()
-    finishQuiz()
-    displayQstNum()
-    getQuestion()
+    functionCall()
   }
 }
