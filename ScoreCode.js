@@ -6,7 +6,8 @@ var storedQuestions = [] ////stores the question for the selected questions
 var storedUserIn = [] //stores the users answer
 var totalQst = 6 //defines how many question the user will need to answer
 
-var header2 = document.getElementById("question") //assigns a variable with a html element
+//assigns a variable with a html element
+var header2 = document.getElementById("question")
 var ansButton1 = document.getElementById("ans1")
 var ansButton2 = document.getElementById("ans2")
 var ansButton3 = document.getElementById("ans3")
@@ -174,7 +175,7 @@ const questions =[
 // used to pull a question 
 function getQuestion() {
 
-    //randomly selected an index number to pull from question an assigns it to selected
+    //randomly selects an index number to pull from question and assigns it to selected
     //then checks if the question has been pulled before
     selected = questions[Math.floor(Math.random() * (questions.length))]
     dupeCheck = storedAnswers.includes(selected.Correct)
@@ -192,7 +193,7 @@ function getQuestion() {
         selected.incorrect3]
       var answers = answers.sort(() => 0.5 - Math.random())
 
-      //buttons are then assign on of the suffled possible inputs
+      //buttons are then assign one of the suffled possible inputs
       //and the header will display the question
       header2.innerHTML = selected.Question;
       ansButton1.innerHTML = answers[0];
@@ -211,7 +212,7 @@ function resetButtons(){
 
 }
 
-//The four onclick fuction below are used to select a button by changing class name
+//The four onclick fuctions below are used to select a button by changing class name
 ansButton1.onclick = function() {
     if (ansButton1.className == "button"){
         ansButton1.className = "buttonSelect"
@@ -256,8 +257,8 @@ ansButton4.onclick = function() {
     ansButton3.className = "button"
 }
 
-//when the user has answer the ammount of total questions 
-//the below variable are put into session storage to be used 
+//when the user has answered the ammount of total questions 
+//the below variables are put into session storage to be used 
 //on the result page
 function finishQuiz(){
   if (ammount == totalQst) {

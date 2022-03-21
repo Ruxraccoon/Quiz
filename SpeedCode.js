@@ -1,9 +1,15 @@
-var score = 0
-var selected =[]
-var storedAnswers = []
-var repeatAns = []
-var sec = 0
-var min = 0
+var score = 0 //ammount of questions the user has got correct
+var selected =[] //stores the question elements taken randomly from questions array
+var totalQst = 6 ////defines how many questions the user will need to answer
+
+//stores the correct answer for the selected questions (used in dupe check)
+var storedAnswers = [] 
+
+var repeatAns = [] //used to stop same question appearing back to back
+var sec = 0 //stores secs passed 
+var min = 0 //stores mins passed
+
+//assigns a variable with a html element
 var header2 = document.getElementById("question")
 var ansButton1 = document.getElementById("ans1")
 var ansButton2 = document.getElementById("ans2")
@@ -12,6 +18,7 @@ var ansButton4 = document.getElementById("ans4")
 var next = document.getElementById("next")
 var timer = document.getElementById("timeTaken")
 
+// The list of questions that can be randomly selected
 const questions =[
     {
       Question: "What is the capital of England?",
@@ -170,9 +177,12 @@ const questions =[
   ];
 
 
+//fuction used to get the time since the quiz started
 function clock(){
     sec = 0
     min = 0
+    //setInterval set at 1000 miliseconds to count each second passed
+    //each if statement is used to update the display to correctly show time
     setInterval(function() {
         if (sec < 10){
             timer.innerHTML = 'Time: ' + min + ':0' + sec;
@@ -191,8 +201,12 @@ function clock(){
     }, 1000)
 }
 
+// used to pull a question 
 function getQuestion() {
 
+    //randomly selects an index number to pull from question and assigns it to selected
+    //then checks if the question has answered correctly and if it has been pulled
+    //within the last pull
     selected = questions[Math.floor(Math.random() * (questions.length))]
     dupeCheck = storedAnswers.includes(selected.Correct)
     repeatCheck = repeatAns.includes(selected.Correct)
@@ -202,9 +216,15 @@ function getQuestion() {
     if (repeatCheck == true){
       getQuestion()
     }
+
+    //if the question passes the reqirements then
+    //the answers are added to the answers array
+    //the array is then shuffled using math.random
     var answers = [selected.Correct,selected.incorrect1,selected.incorrect2,selected.incorrect3]
     var answers = answers.sort((a,b) => 0.5 - Math.random())
 
+    //buttons are then assign one of the suffled possible inputs
+    //and the header will display the question
     header2.innerHTML = selected.Question;
     ansButton1.innerHTML = answers[0];
     ansButton2.innerHTML = answers[1];
@@ -212,6 +232,7 @@ function getQuestion() {
     ansButton4.innerHTML = answers[3];
 }
 
+//used to remove the users selected button when a new question is pulled
 function resetButtons(){
   ansButton1.className = "button"
   ansButton2.className = "button"
@@ -220,8 +241,10 @@ function resetButtons(){
 
 }
 
+//starts counting the timer
 clock()
 
+//The four onclick fuctions below are used to select a button by changing class name
 ansButton1.onclick = function() {
     if (ansButton1.className == "button"){
         ansButton1.className = "buttonSelect"
@@ -266,8 +289,11 @@ ansButton4.onclick = function() {
     ansButton3.className = "button"
 }
 
+//when the user has answered the ammount of total questions 
+//the below variables are put into session storage to be used 
+//on the result page
 function finishQuiz(){
-  if (score == 6) {
+  if (score == totalQst) {
     sessionStorage.setItem("sec", sec)
     sessionStorage.setItem("min", min)
     sessionStorage.setItem("score", score)
@@ -275,6 +301,8 @@ function finishQuiz(){
   }
 }
 
+//used to check if the question that has been pulled
+//has been pulled recently
 function reCheck(){
   repeatAns.push(selected.Correct)
   if (repeatAns.length == 3){
@@ -282,6 +310,8 @@ function reCheck(){
   }
 }
 
+//used to run all fuctions that are needed when the
+//next button is used by the user
 function functionCall(){
   reCheck()
   resetButtons()
@@ -289,8 +319,14 @@ function functionCall(){
   getQuestion()
 }
 
+//pulls the first question
 getQuestion()
 
+//when the next button is clicked it checks what ans button was
+//selected and if it was the correct answer if it is correct score will increase 
+//if it is incorrect nothing will increase.
+//if no button was selected nothing increase.
+//fuction call is used to run all the necessary fuctions.
 next.onclick = function() {
   if (ansButton1.className == "buttonSelect"){
     if (ansButton1.innerHTML == selected.Correct){
