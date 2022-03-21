@@ -3,6 +3,7 @@ var score = 0
 var selected =[]
 var storedAnswers = []
 var storedQuestions = []
+var storedUserIn = []
 var totalQst = 6 //Used to define number of questions in quiz
 
 var header2 = document.getElementById("question")
@@ -245,8 +246,10 @@ function finishQuiz(){
     sessionStorage.setItem("ammount", ammount)
     storedAnswers = JSON.stringify(storedAnswers)
     storedQuestions = JSON.stringify(storedQuestions)
+    storedUserIn = JSON.stringify(storedUserIn)
     sessionStorage.setItem("answers", storedAnswers)
     sessionStorage.setItem("questions", storedQuestions)
+    sessionStorage.setItem("userinput", storedUserIn)
     window.location.replace("ScoreResults.html");
   }
 }
@@ -254,6 +257,30 @@ function finishQuiz(){
 function displayQstNum(){
   document.getElementById("display").innerHTML = 
   `Question: ${ammount}/${totalQst}`
+}
+
+function userInputStorage(){
+  if (ansButton1.innerHTML == selected.Correct
+    || ansButton2.innerHTML == selected.Correct
+    || ansButton3.innerHTML == selected.Correct
+    || ansButton4.innerHTML == selected.Correct){
+    storedUserIn.push(selected.Correct)
+  } else if (ansButton1.innerHTML == selected.incorrect1
+    || ansButton2.innerHTML == selected.incorrect1
+    || ansButton3.innerHTML == selected.incorrect1
+    || ansButton4.innerHTML == selected.incorrect1){
+    storedUserIn.push(selected.incorrect1)
+  } else if (ansButton1.innerHTML == selected.incorrect2
+    || ansButton2.innerHTML == selected.incorrect2
+    || ansButton3.innerHTML == selected.incorrect2
+    || ansButton4.innerHTML == selected.incorrect2){
+    storedUserIn.push(selected.incorrect2)
+  } else if (ansButton1.innerHTML == selected.incorrect3
+    || ansButton2.innerHTML == selected.incorrect3
+    || ansButton3.innerHTML == selected.incorrect3
+    || ansButton4.innerHTML == selected.incorrect3){
+    storedUserIn.push(selected.incorrect3)
+  }
 }
 
 getQuestion()
@@ -265,6 +292,7 @@ next.onclick = function() {
     if (ansButton1.innerHTML == selected.Correct){
       score++
     }
+    userInputStorage()
     resetButtons()
     finishQuiz()
     displayQstNum()
@@ -274,6 +302,7 @@ next.onclick = function() {
     if (ansButton2.innerHTML == selected.Correct){
       score++
     }
+    userInputStorage()
     resetButtons()
     finishQuiz()
     displayQstNum()
@@ -283,6 +312,7 @@ next.onclick = function() {
     if (ansButton3.innerHTML == selected.Correct){
       score++
     }
+    userInputStorage()
     resetButtons()
     finishQuiz()
     displayQstNum()
@@ -292,6 +322,7 @@ next.onclick = function() {
     if (ansButton4.innerHTML == selected.Correct){
       score++
     }
+    userInputStorage()
     resetButtons()
     finishQuiz()
     displayQstNum()
