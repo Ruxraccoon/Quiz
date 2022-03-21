@@ -318,7 +318,6 @@ function functionCall(){
   finishQuiz()
   displayQstNum()
   getQuestion()
-  console.log(storedUserIn)
 }
 
 getQuestion()
