@@ -160,6 +160,13 @@ const questions =[
       incorrect1: "Brno",
       incorrect2: "Liberec",
       incorrect3: "Vienna"
+    },
+    {
+      Question: "What is the capital of Egypt",
+      Correct: "Cairo",
+      incorrect1: "New Cairo City",
+      incorrect2: "Alexandria",
+      incorrect3: "Jerusalem"
     }
   ];
 
