@@ -28,24 +28,30 @@
         ammount = JSON.parse(sessionStorage.getItem("ammount"));
         storedAns = JSON.parse(sessionStorage.getItem("answers"));
         storedQst = JSON.parse(sessionStorage.getItem("questions"));
-        console.log(storedAns, storedQst)
+        storedInp = JSON.parse(sessionStorage.getItem("userinput"));
         score = String(score);
         ammount = String(ammount);
         document.getElementById("result").innerHTML = `${score} / ${ammount}`
         document.getElementById("qstResult").innerHTML =
         `The correct answers for your Questions where : <br><br>
         ${storedQst[0]} : <br>
-        ${storedAns[0]} <br><br>
+         Correct Answer: ${storedAns[0]} <br>
+         Your Answer: ${storedInp[0]} <br><br>
         ${storedQst[1]} :<br>
-        ${storedAns[1]} <br><br>
+        Correct Answer: ${storedAns[1]} <br>
+        Your Answer: ${storedInp[1]} <br><br>
         ${storedQst[2]} : <br>
-        ${storedAns[2]} <br><br>
+        Correct Answer: ${storedAns[2]} <br>
+        Your Answer: ${storedInp[2]} <br><br>
         ${storedQst[3]} :<br>
-        ${storedAns[3]} <br><br>
+        Correct Answer: ${storedAns[3]} <br>
+        Your Answer: ${storedInp[3]} <br><br>
         ${storedQst[4]} : <br>
-        ${storedAns[4]} <br><br>
+        Correct Answer: ${storedAns[4]} <br>
+        Your Answer: ${storedInp[4]} <br><br>
         ${storedQst[5]} :<br>
-        ${storedAns[5]} <br><br>`
+        Correct Answer: ${storedAns[5]} <br>
+        Your Answer: ${storedInp[5]} <br><br>`
 
         </script>
         

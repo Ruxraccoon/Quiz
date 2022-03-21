@@ -260,26 +260,49 @@ function displayQstNum(){
 }
 
 function userInputStorage(){
-  if (ansButton1.innerHTML == selected.Correct
-    || ansButton2.innerHTML == selected.Correct
-    || ansButton3.innerHTML == selected.Correct
-    || ansButton4.innerHTML == selected.Correct){
-    storedUserIn.push(selected.Correct)
-  } else if (ansButton1.innerHTML == selected.incorrect1
-    || ansButton2.innerHTML == selected.incorrect1
-    || ansButton3.innerHTML == selected.incorrect1
-    || ansButton4.innerHTML == selected.incorrect1){
-    storedUserIn.push(selected.incorrect1)
-  } else if (ansButton1.innerHTML == selected.incorrect2
-    || ansButton2.innerHTML == selected.incorrect2
-    || ansButton3.innerHTML == selected.incorrect2
-    || ansButton4.innerHTML == selected.incorrect2){
-    storedUserIn.push(selected.incorrect2)
-  } else if (ansButton1.innerHTML == selected.incorrect3
-    || ansButton2.innerHTML == selected.incorrect3
-    || ansButton3.innerHTML == selected.incorrect3
-    || ansButton4.innerHTML == selected.incorrect3){
-    storedUserIn.push(selected.incorrect3)
+  if (ansButton1.className == "buttonSelect"){
+    if (ansButton1.innerHTML == selected.Correct){
+      storedUserIn.push(selected.Correct)
+    } else if (ansButton1.innerHTML == selected.incorrect1){
+      storedUserIn.push(selected.incorrect1)
+    } else if (ansButton1.innerHTML == selected.incorrect2){
+      storedUserIn.push(selected.incorrect2)
+    } else if (ansButton1.innerHTML == selected.incorrect3){
+      storedUserIn.push(selected.incorrect3)
+    }
+  }
+  if (ansButton2.className == "buttonSelect"){
+    if (ansButton2.innerHTML == selected.Correct){
+      storedUserIn.push(selected.Correct)
+    } else if (ansButton2.innerHTML == selected.incorrect1){
+      storedUserIn.push(selected.incorrect1)
+    } else if (ansButton2.innerHTML == selected.incorrect2){
+      storedUserIn.push(selected.incorrect2)
+    } else if (ansButton2.innerHTML == selected.incorrect3){
+      storedUserIn.push(selected.incorrect3)
+    }
+  }
+  if (ansButton3.className == "buttonSelect"){
+    if (ansButton3.innerHTML == selected.Correct){
+      storedUserIn.push(selected.Correct)
+    } else if (ansButton3.innerHTML == selected.incorrect1){
+      storedUserIn.push(selected.incorrect1)
+    } else if (ansButton3.innerHTML == selected.incorrect2){
+      storedUserIn.push(selected.incorrect2)
+    } else if (ansButton3.innerHTML == selected.incorrect3){
+      storedUserIn.push(selected.incorrect3)
+    }
+  }
+  if (ansButton4.className == "buttonSelect"){
+    if (ansButton4.innerHTML == selected.Correct){
+      storedUserIn.push(selected.Correct)
+    } else if (ansButton4.innerHTML == selected.incorrect1){
+      storedUserIn.push(selected.incorrect1)
+    } else if (ansButton4.innerHTML == selected.incorrect2){
+      storedUserIn.push(selected.incorrect2)
+    } else if (ansButton4.innerHTML == selected.incorrect3){
+      storedUserIn.push(selected.incorrect3)
+    }
   }
 }
 
