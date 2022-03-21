@@ -257,6 +257,12 @@ function finishQuiz(){
   }
 }
 
+function functionCall(){
+  resetButtons()
+  finishQuiz()
+  getQuestion()
+}
+
 getQuestion()
 
 next.onclick = function() {
@@ -264,33 +270,23 @@ next.onclick = function() {
     if (ansButton1.innerHTML == selected.Correct){
       score++
     }
-    resetButtons()
-    finishQuiz()
-    getQuestion()
+    functionCall()
   } else if (ansButton2.className == "buttonSelect"){
     if (ansButton2.innerHTML == selected.Correct){
       score++
     }
-    resetButtons()
-    finishQuiz()
-    getQuestion()
+    functionCall()
   } else if (ansButton3.className == "buttonSelect"){
     if (ansButton3.innerHTML == selected.Correct){
       score++
     }
-    resetButtons()
-    finishQuiz()
-    getQuestion()
+    functionCall()
   } else if (ansButton4.className == "buttonSelect"){
     if (ansButton4.innerHTML == selected.Correct){
       score++
     }
-    resetButtons()
-    finishQuiz()
-    getQuestion()
+    functionCall()
   } else {
-    resetButtons()
-    finishQuiz()
-    getQuestion()
+    functionCall()
   }
 }
