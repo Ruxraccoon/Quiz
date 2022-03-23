@@ -133,8 +133,8 @@ const questions =[
       incorrect3: "Camopi"
     },
     {
-      Question: "What is the capital of Colobia?",
-      Correct: "Medellin",
+      Question: "What is the capital of Colombia?",
+      Correct: "Bogota",
       incorrect1: "Cali",
       incorrect2: "Monteria",
       incorrect3: "Popayan"
