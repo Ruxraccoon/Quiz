@@ -164,7 +164,7 @@ const questions =[
       incorrect3: "Vienna"
     },
     {
-      Question: "What is the capital of Egypt",
+      Question: "What is the capital of Egypt?",
       Correct: "Cairo",
       incorrect1: "New Cairo City",
       incorrect2: "Alexandria",
